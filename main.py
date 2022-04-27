@@ -53,7 +53,7 @@ while True:
         if not os.path.exists(obj_name):
             print('Обьект не существует')
         else:
-            if os.path.isdir(name):
+            if os.path.isdir(obj_name):
                 os.rmdir(obj_name)
                 print(f'Папка {obj_name} удалена')
             else:
@@ -79,17 +79,17 @@ while True:
     elif choice == '5':
         print('\nПросмотр содержимого рабочей директории/ТОЛЬКО ПАПКИ:')
         all_names = os.listdir()
-        for name in all_names:
-            if os.path.isdir(name):
-                print(name)
+        for obj_name in all_names:
+            if os.path.isdir(obj_name):
+                print(obj_name)
 
     # ##################################################
     elif choice == '6':
         print('\nПросмотр содержимого рабочей директории/ТОЛЬКО ФАЙЛЫ:')
         all_names = os.listdir()
-        for name in all_names:
-            if os.path.isfile(name):
-                print(name)
+        for obj_name in all_names:
+            if os.path.isfile(obj_name):
+                print(obj_name)
 
     # ##################################################
     elif choice == '7':
@@ -108,7 +108,7 @@ while True:
 
     # ##################################################
     elif choice == '10':
-        print('\nИграем в Викторину:')
+        print('\nМой банковский счет:')
         pass
 
     # ##################################################
