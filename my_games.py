@@ -1,3 +1,7 @@
+import os
+import json
+
+
 # ########## Викторина ########################################################################################№######
 def game_victory():
     print('#'*100)
@@ -73,8 +77,17 @@ def game_bank():
     print('#'*100)
     print('           БАНКОВСКИЙ СЧЕТ')
     print('#'*100)
+
     cash = 0  # кошелек
+    if os.path.exists('cash.txt'):
+        with open('cash.txt', 'r') as f:
+            cash = int(f.readline())
+    print(f'Ваш счет: {cash} рублей')
+
     history = []  # история
+    if os.path.exists('cash_history.json'):
+        with open('cash_history.json', 'r') as f:
+            history = json.load(f)
 
     while True:
         print('1. пополнение счета')
@@ -96,6 +109,11 @@ def game_bank():
             print_history(history)
 
         elif choice == '4':
+            with open('cash.txt', 'w') as f:
+                f.write(str(cash))
+            with open('cash_history.json', 'w') as f:
+                json.dump(history, f)
+
             print('\nGAME OVER')
             print('#'*100)
             break
